@@ -30,7 +30,7 @@ function displayBooks() {
 
         //add information to the card
 
-        //adding title
+        //add title
         const bookTitle = document.createElement("p");
         bookTitle.classList.add("title");
         const titleText = document.createTextNode(myLibrary[book].title);
@@ -44,13 +44,19 @@ function displayBooks() {
         bookAuthor.append(authorText);
         bookCard.appendChild(bookAuthor);
 
-        //add Pages
+        //add pages
         const bookPages = document.createElement("p");
         bookPages.classList.add("pages");
         const pagesText = document.createTextNode(myLibrary[book].pages);
         bookPages.append(pagesText);
         bookCard.appendChild(bookPages);
 
+        //add read status
+        const bookRead = document.createElement("p");
+        bookRead.classList.add("read");
+        const readText = document.createTextNode(myLibrary[book].read);
+        bookRead.append(readText);
+        bookCard.appendChild(bookRead);
 
         // add finished card to display container
         bookDisplay.appendChild(bookCard);

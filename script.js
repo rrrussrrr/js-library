@@ -44,6 +44,13 @@ function displayBooks() {
         bookAuthor.append(authorText);
         bookCard.appendChild(bookAuthor);
 
+        //add Pages
+        const bookPages = document.createElement("p");
+        bookPages.classList.add("pages");
+        const pagesText = document.createTextNode(myLibrary[book].pages);
+        bookPages.append(pagesText);
+        bookCard.appendChild(bookPages);
+
 
         // add finished card to display container
         bookDisplay.appendChild(bookCard);

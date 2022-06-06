@@ -26,7 +26,8 @@ function displayBooks() {
         //create new bookCard for each book in myLibrary
         const bookCard = document.createElement("div");
         bookCard.classList.add("bookCard");
-
+        // add data-booknum attribute corresponding to array item #
+        bookCard.dataset.booknum = book;
 
         //add information to the card
 

@@ -23,8 +23,8 @@ function addBookToLibrary(title, author, pages) {
 function displayBooks() {
     const bookDisplay = document.getElementById("books");
     for (const book in myLibrary) {
-        console.log(myLibrary[book]);
-
+        bookDiv = document.createTextNode(myLibrary[book].title);
+        bookDisplay.appendChild(bookDiv);
     }
 
 

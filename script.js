@@ -14,11 +14,15 @@ Book.prototype.isRead = function() {
     this.read = !(this.read);
 }
 
-function addBookToLibrary() {
+// adds a new book to the myLibrary array
+function addBookToLibrary(title, author, pages) {
+    myLibrary.push(new Book(title, author, pages));
 
 
-    
 }
+
+addBookToLibrary("baba", "baba", 3);
+console.log(myLibrary);
 
 
 

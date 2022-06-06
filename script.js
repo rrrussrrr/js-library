@@ -14,6 +14,12 @@ Book.prototype.isRead = function() {
     this.read = !(this.read);
 }
 
+function addBookToLibrary() {
+
+
+    
+}
+
 
 
 

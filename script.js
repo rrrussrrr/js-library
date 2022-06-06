@@ -22,6 +22,11 @@ function addBookToLibrary(title, author, pages) {
 // 
 function displayBooks() {
     const bookDisplay = document.getElementById("books");
+
+    //first delete all child divs from bookDisplay
+    while (bookDisplay.firstChild) {
+        bookDisplay.removeChild(bookDisplay.firstChild);
+    }
     for (const book in myLibrary) {
         //create new bookCard for each book in myLibrary
         const bookCard = document.createElement("div");
@@ -65,6 +70,20 @@ function displayBooks() {
 
 
 }
+
+document.addEventListener('click', function(event){
+
+    if (event.target.id === "addbook") {
+        addBookToLibrary("title", "author", 10);
+        displayBooks();
+    }
+
+
+
+
+
+
+})
 
 addBookToLibrary("baba", "baba", 3);
 addBookToLibrary("bff", "fa", 3);

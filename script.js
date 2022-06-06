@@ -37,8 +37,12 @@ function displayBooks() {
         bookTitle.append(titleText);
         bookCard.appendChild(bookTitle);
 
-
-
+        //add author
+        const bookAuthor = document.createElement("p");
+        bookAuthor.classList.add("author");
+        const authorText = document.createTextNode(myLibrary[book].author);
+        bookAuthor.append(authorText);
+        bookCard.appendChild(bookAuthor);
 
 
         // add finished card to display container
@@ -52,6 +56,6 @@ addBookToLibrary("baba", "baba", 3);
 addBookToLibrary("bff", "fa", 3);
 addBookToLibrary("fba", "bfffffba", 6);
 
-
+displayBooks();
 
 

@@ -17,12 +17,22 @@ Book.prototype.isRead = function() {
 // adds a new book to the myLibrary array
 function addBookToLibrary(title, author, pages) {
     myLibrary.push(new Book(title, author, pages));
+}
+
+// 
+function displayBooks() {
+    const bookDisplay = document.getElementById("books");
+    for (const book in myLibrary) {
+        console.log(myLibrary[book]);
+
+    }
 
 
 }
 
 addBookToLibrary("baba", "baba", 3);
-console.log(myLibrary);
+addBookToLibrary("bff", "fa", 3);
+addBookToLibrary("fba", "bfffffba", 6);
 
 
 

@@ -76,7 +76,11 @@ const form = document.getElementById("form");
 form.addEventListener('submit', function(event){
 
     //if (event.target.id === "addbook") {
-        addBookToLibrary("title", "author", 10);
+
+        const t = event.target.elements.title.value;
+        const a = event.target.elements.author.value;
+        const p = event.target.elements.pages.value;
+        addBookToLibrary(t, a, p);
         displayBooks();
     //}
 

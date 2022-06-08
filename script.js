@@ -71,12 +71,14 @@ function displayBooks() {
 
 }
 
-document.addEventListener('click', function(event){
+const form = document.getElementById("form");
 
-    if (event.target.id === "addbook") {
+form.addEventListener('submit', function(event){
+
+    //if (event.target.id === "addbook") {
         addBookToLibrary("title", "author", 10);
         displayBooks();
-    }
+    //}
 
 
 
@@ -90,5 +92,13 @@ addBookToLibrary("bff", "fa", 3);
 addBookToLibrary("fba", "bfffffba", 6);
 
 displayBooks();
+
+function handleForm(event) {event.preventDefault();}
+document.addEventListener('submit', handleForm);
+
+
+let lol = JSON.stringify(myLibrary);
+let lolol = JSON.parse(lol);
+console.log(lolol);
 
 

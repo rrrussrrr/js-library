@@ -1,8 +1,9 @@
 let myLibrary = [];
+const bookDisplay = document.getElementById("books");
 
 //if local storage is empty, add a placeholder book
 if (localStorage.getItem('myLibrary') === null ) {
-    addBookToLibrary("baba", "baba", 3);
+    addBookToLibrary("Crime and Punishment", "Fyodor Dostoyevsky", 448);
 } 
 // otherwise load from local storage
 else {
@@ -45,9 +46,19 @@ function addBookToLibrary(title, author, pages) {
     store();
 }
 
+// delete a card by finding the cardNum'th child
+function deleteBook(cardNum){
+    if (bookDisplay.firstChild) {
+    let cards = document.querySelectorAll('.bookCard');
+    myLibrary.splice(cardNum, 1);
+    store();
+    cards[cardNum].remove();
+    }
+
+}
+
 // 
 function displayBooks() {
-    const bookDisplay = document.getElementById("books");
 
     //first delete all child divs from bookDisplay
     while (bookDisplay.firstChild) {
@@ -116,12 +127,6 @@ form.addEventListener('submit', function(event){
 
 
 
-function handleForm(event) {event.preventDefault();}
-document.addEventListener('submit', handleForm);
-
-
-let lol = JSON.stringify(myLibrary);
-let lolol = JSON.parse(lol);
-console.log(lolol);
-
+//function handleForm(event) {event.preventDefault();}
+//document.addEventListener('submit', handleForm);
 

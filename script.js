@@ -1,5 +1,19 @@
 let myLibrary = [];
 
+
+
+
+// store myLibrary to localStorage
+function store(){
+    window.localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+};
+
+//recall myLibrary from localStorage
+function recall(){
+
+    myLibrary = JSON.parse(window.localStorage.getItem('myLibrary'));
+}
+
 function Book(title, author, pages) {
 
     this.title = title;
@@ -75,14 +89,13 @@ const form = document.getElementById("form");
 
 form.addEventListener('submit', function(event){
 
-    //if (event.target.id === "addbook") {
 
         const t = event.target.elements.title.value;
         const a = event.target.elements.author.value;
         const p = event.target.elements.pages.value;
         addBookToLibrary(t, a, p);
         displayBooks();
-    //}
+
 
 
 

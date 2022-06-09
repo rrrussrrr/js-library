@@ -1,7 +1,15 @@
 let myLibrary = [];
 
+//if local storage is empty, add a placeholder book
+if (localStorage.getItem('myLibrary') === null ) {
+    addBookToLibrary("baba", "baba", 3);
+} 
+// otherwise load from local storage
+else {
+    recall();
+}
 
-
+    displayBooks();
 
 // store myLibrary to localStorage
 function store(){
@@ -10,8 +18,10 @@ function store(){
 
 //recall myLibrary from localStorage
 function recall(){
-
+    console.log(myLibrary);
+    console.log(window.localStorage.getItem('myLibrary'));
     myLibrary = JSON.parse(window.localStorage.getItem('myLibrary'));
+    console.log(myLibrary);
 }
 
 function Book(title, author, pages) {
@@ -31,6 +41,8 @@ Book.prototype.isRead = function() {
 // adds a new book to the myLibrary array
 function addBookToLibrary(title, author, pages) {
     myLibrary.push(new Book(title, author, pages));
+    // store in local storage
+    store();
 }
 
 // 
@@ -95,20 +107,14 @@ form.addEventListener('submit', function(event){
         const p = event.target.elements.pages.value;
         addBookToLibrary(t, a, p);
         displayBooks();
-
-
-
-
-
+        //store();
 
 
 })
 
-addBookToLibrary("baba", "baba", 3);
-addBookToLibrary("bff", "fa", 3);
-addBookToLibrary("fba", "bfffffba", 6);
 
-displayBooks();
+
+
 
 function handleForm(event) {event.preventDefault();}
 document.addEventListener('submit', handleForm);

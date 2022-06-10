@@ -78,7 +78,7 @@ function displayBook(book) {
         //create new bookCard for each book in myLibrary
         const bookCard = document.createElement("div");
         bookCard.classList.add("bookCard");
-        
+
         // add data-booknum attribute corresponding to array item #
         //bookCard.dataset.booknum = book;
 
@@ -137,6 +137,24 @@ form.addEventListener('submit', function(event){
         addBookToLibrary(t, a, p);
         //displayBook();
         //store();
+
+
+})
+
+//input a DOM element and get which # child it is of it's parent
+function findChildNum(target) {
+    return [...target.parentNode.children].indexOf(target);
+}
+
+// checking delete button clicked
+document.addEventListener('click', function(event) {
+
+    // if we hit a delete button
+    if (event.target.classList.contains("delete")) {
+        const bookCard = event.target.parentNode;
+        const bookNum = findChildNum(bookCard);
+        deleteBook(bookNum);
+    }
 
 
 })

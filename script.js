@@ -1,6 +1,25 @@
 let myLibrary = [];
 const bookDisplay = document.getElementById("books");
 
+//Book Object
+function Book(title, author, pages, read) {
+
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+}
+
+Book.prototype.isRead = function() {
+    console.log("here");
+    if (this.read === "Unread"){
+        this.read = "Read!"
+    } else { this.read = "Unread";
+   }
+};
+
+lebook = new Book ("a", "b", 10);
+
 ///// INITIALIZATION
 // if local storage is empty, add a placeholder book
 if (localStorage.getItem('myLibrary') === null ) {
@@ -27,28 +46,22 @@ function store(){
 
 // Function to recall myLibrary from localStorage
 function recall(){
-    console.log(myLibrary);
-    console.log(window.localStorage.getItem('myLibrary'));
-    myLibrary = JSON.parse(window.localStorage.getItem('myLibrary'));
-    console.log(myLibrary);
+
+
+    const objects = JSON.parse(window.localStorage.getItem('myLibrary'));
+    for (let element of objects){
+        if(element !== null) {
+            myLibrary.push( new Book(element.title, element.author, element.pages, element.read));
+        }
+
+    }
 }
 
-//Book Object
-function Book(title, author, pages) {
 
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = false;
-}
-
-Book.prototype.isRead = function() {
-    this.read = !(this.read);
-}
 
 // adds a new book to the myLibrary array
 function addBookToLibrary(title, author, pages) {
-    const newBook = new Book(title, author, pages);
+    const newBook = new Book(title, author, pages, "Unread");
     myLibrary.push(newBook);
     // store in local storage
     store();
@@ -69,7 +82,6 @@ function deleteBook(n){
 
 // Adds a book to the display with book from myLibrary[] as argument 
 function displayBook(book) {
-
     //first delete all child divs from bookDisplay
     //while (bookDisplay.firstChild) {
      //   bookDisplay.removeChild(bookDisplay.firstChild);
@@ -146,7 +158,7 @@ function findChildNum(target) {
     return [...target.parentNode.children].indexOf(target);
 }
 
-// checking delete button clicked
+// checking any card button clicked
 document.addEventListener('click', function(event) {
 
     // if we hit a delete button
@@ -155,6 +167,23 @@ document.addEventListener('click', function(event) {
         const bookNum = findChildNum(bookCard);
         deleteBook(bookNum);
     }
+
+    // if we toggle read status
+    else if (event.target.classList.contains("read")) {
+        const bookCard = event.target.parentNode;
+        const bookNum = findChildNum(bookCard);
+        const book = myLibrary[bookNum];
+       console.log(myLibrary[bookNum].read)
+        book.isRead();
+        console.log(myLibrary[bookNum].read)
+        const readText = bookCard.querySelector("p.read");
+        readText.innerText = book.read;
+        console.log(myLibrary)
+        store();
+
+    }
+
+
 
 
 })

@@ -28,10 +28,11 @@ if (localStorage.getItem('myLibrary') === null ) {
 // otherwise load from local storage
 else {
     recall();
-}
+
     // display all book cards
-for (const book in myLibrary) {
-    displayBook(myLibrary[book]);
+    for (const book in myLibrary) {
+         displayBook(myLibrary[book]);
+    }
 }
 
 ///// END INIT

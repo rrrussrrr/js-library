@@ -52,6 +52,16 @@
 
 }
 
+#popup {
+    background-color: blue;
+    height: 200px;
+    width: 200px;
+    position: relative;
+    top:200px;
+    margin:auto;
+    padding: 20px;
+}
+
 .modalform {
     background-color: #fefefe;
     margin: 15% auto;

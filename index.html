@@ -9,25 +9,35 @@
 </head>
 <body>
     
-    <form id="form" action="#">
-        <div class="field">
-            <label for="title"></label>
-            <input type="text" id="title" name="title">
-        </div>
-        <div class="field">
-            <label for="author"></label>
-            <input type="text" id="author" name="author">
-        </div>
-        <div class="field">
-            <label for="pages"></label>
-            <input type="text" id="pages" name="pages">
-        </div>        
-        <div class="field">
-            <button id="addbook" type="submit">Add Book</button>
-        </div>
+    <button id="modalbutton" class="modalbutton">Add Book</button>
+
+    <div id="modal" class="modal">
 
 
-    </form>
+        <form id="modalform" action="#">
+            <div class="field">
+                <label for="title"></label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div class="field">
+                <label for="author"></label>
+                <input type="text" id="author" name="author">
+            </div>
+            <div class="field">
+                <label for="pages"></label>
+                <input type="text" id="pages" name="pages">
+            </div>        
+            <div class="field">
+                <button id="addbook" type="submit">Add Book</button>
+            </div>
+    
+    
+        </form>
+    
+
+
+    </div>
+
 
     <div id="books">
 

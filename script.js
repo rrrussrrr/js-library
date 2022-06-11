@@ -1,5 +1,9 @@
 let myLibrary = [];
 const bookDisplay = document.getElementById("books");
+const modal = document.getElementById("modal");
+const modalButton = document.getElementById("modalbutton");
+const submitButton = document.getElementById("addbook");
+
 
 //Book Object
 function Book(title, author, pages, read) {
@@ -11,7 +15,6 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.isRead = function() {
-    console.log("here");
     if (this.read === "Unread"){
         this.read = "Read!"
     } else { this.read = "Unread";
@@ -139,7 +142,7 @@ function displayBook(book) {
 
 }
 
-const form = document.getElementById("form");
+const form = document.getElementById("modalform");
 
 form.addEventListener('submit', function(event){
 
@@ -150,7 +153,7 @@ form.addEventListener('submit', function(event){
         addBookToLibrary(t, a, p);
         //displayBook();
         //store();
-
+        modal.style.display = "none";
 
 })
 
@@ -161,6 +164,7 @@ function findChildNum(target) {
 
 // checking any card button clicked
 document.addEventListener('click', function(event) {
+    console.log(event.target);
 
     // if we hit a delete button
     if (event.target.classList.contains("delete")) {
@@ -174,13 +178,16 @@ document.addEventListener('click', function(event) {
         const bookCard = event.target.parentNode;
         const bookNum = findChildNum(bookCard);
         const book = myLibrary[bookNum];
-       console.log(myLibrary[bookNum].read)
+
         book.isRead();
-        console.log(myLibrary[bookNum].read)
+
         const readText = bookCard.querySelector("p.read");
         readText.innerText = book.read;
-        console.log(myLibrary)
+
         store();
+
+    } else if (event.target.classList.contains("modalbutton")) {
+        modal.style.display = "block";
 
     }
 
@@ -189,10 +196,18 @@ document.addEventListener('click', function(event) {
 
 })
 
+//modalButton.onClick = function () {
+
+  //  modal.style.display = "block";
+//}
+
+//submitButton.onClick = function () {
+
+ //   modal.style.display = "none";
+//}
 
 
 
-
-//function handleForm(event) {event.preventDefault();}
-//document.addEventListener('submit', handleForm);
+function handleForm(event) {event.preventDefault();}
+document.addEventListener('submit', handleForm);
 

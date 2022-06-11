@@ -166,6 +166,14 @@ function findChildNum(target) {
 document.addEventListener('click', function(event) {
     console.log(event.target);
 
+    //if the modal is visible and click outside modal, close modal
+    if (modal.style.display === "block") {
+        if (event.target.classList.contains("modal")) {
+            modal.style.display = "none";
+        }
+    }
+
+
     // if we hit a delete button
     if (event.target.classList.contains("delete")) {
         const bookCard = event.target.parentNode;
@@ -189,7 +197,7 @@ document.addEventListener('click', function(event) {
     } else if (event.target.classList.contains("modalbutton")) {
         modal.style.display = "block";
 
-    }
+    } 
 
 
 

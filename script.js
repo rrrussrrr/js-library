@@ -169,14 +169,14 @@ document.addEventListener('click', function(event) {
     // if we hit a delete button
     if (event.target.classList.contains("delete")) {
         const bookCard = event.target.parentNode;
-        const bookNum = findChildNum(bookCard);
-        deleteBook(bookNum);
+        const bookNum = findChildNum(bookCard) - 1;
+        deleteBook(bookNum); //need -1 because of the addbook button being child #1
     }
 
     // if we toggle read status
     else if (event.target.classList.contains("read")) {
         const bookCard = event.target.parentNode;
-        const bookNum = findChildNum(bookCard);
+        const bookNum = findChildNum(bookCard) - 1;
         const book = myLibrary[bookNum];
 
         book.isRead();
@@ -208,6 +208,6 @@ document.addEventListener('click', function(event) {
 
 
 
-function handleForm(event) {event.preventDefault();}
-document.addEventListener('submit', handleForm);
+//function handleForm(event) {event.preventDefault();}
+//document.addEventListener('submit', handleForm);
 

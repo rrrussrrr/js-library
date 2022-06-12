@@ -15,9 +15,9 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.isRead = function() {
-    if (this.read === "Unread"){
-        this.read = "Read!"
-    } else { this.read = "Unread";
+    if (this.read === false){
+        this.read = true;
+    } else { this.read = false;
    }
 };
 
@@ -65,7 +65,7 @@ function recall(){
 
 // adds a new book to the myLibrary array
 function addBookToLibrary(title, author, pages) {
-    const newBook = new Book(title, author, pages, "Unread");
+    const newBook = new Book(title, author, pages, false);
     myLibrary.push(newBook);
     // store in local storage
     store();
@@ -124,9 +124,18 @@ function displayBook(book) {
         //add read status
         const bookRead = document.createElement("p");
         bookRead.classList.add("read");
-        const readText = document.createTextNode(book.read);
+        const readText = document.createTextNode("");
+        if (book.read === true) {
+            bookCard.classList.add("readcard");
+            readText.textContent = "Read";
+        } else {
+            bookCard.classList.add("unreadcard");
+            readText.textContent = "Not Read";
+        }
         bookRead.append(readText);
         bookCard.appendChild(bookRead);
+
+
 
 /*         //add Read checkbox
         const readCheck = document.createElement("input");
@@ -203,7 +212,17 @@ document.addEventListener('click', function(event) {
         book.isRead();
 
         const readText = bookCard.querySelector("p.read");
-        readText.innerText = book.read;
+        if (book.read === true) {
+            bookCard.classList.add("readcard");
+            bookCard.classList.remove("unreadcard");
+            readText.innerText = "Read";
+        } else {
+            bookCard.classList.add("unreadcard");
+            bookCard.classList.remove("readcard");
+            readText.innerText = "Not Read";
+        }
+
+
 
         store();
 

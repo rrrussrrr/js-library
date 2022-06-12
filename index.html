@@ -8,49 +8,50 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div>
-    <header>
-        <h1>Booksss</h1>
+    <div id="page-container">
+        <header id="header">
+            <h1>Booksss</h1>
 
-    </header>
+        </header>
 
+        <div id="modal" class="modal">
 
-
-    <div id="modal" class="modal">
-
-        <div id="popup">
-        <form id="modalform" action="#">
-            <div class="field">
-                <label for="title"></label>
-                <input type="text" id="title" name="title">
+            <div id="popup">
+            <form id="modalform" action="#">
+                <div class="field">
+                    <label for="title"></label>
+                    <input type="text" id="title" name="title">
+                </div>
+                <div class="field">
+                    <label for="author"></label>
+                    <input type="text" id="author" name="author">
+                </div>
+                <div class="field">
+                    <label for="pages"></label>
+                    <input type="text" id="pages" name="pages">
+                </div>        
+                <div class="field">
+                    <button id="addbook" type="submit">Add Book</button>
+                </div>
+            </form>
             </div>
-            <div class="field">
-                <label for="author"></label>
-                <input type="text" id="author" name="author">
-            </div>
-            <div class="field">
-                <label for="pages"></label>
-                <input type="text" id="pages" name="pages">
-            </div>        
-            <div class="field">
-                <button id="addbook" type="submit">Add Book</button>
-            </div>
-    
-    
-        </form>
+
         </div>
-    
+
+        <div id="main">
 
 
+
+            <div id="books">
+                <button id="modalbutton" class="modalbutton">Add Book</button>
+            </div>
+
+        </div>
+
+        <footer id="footer">
+
+        </footer>
     </div>
-
-
-    <div id="books">
-        <button id="modalbutton" class="modalbutton">Add Book</button>
-
-    </div>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>

@@ -103,21 +103,21 @@ function displayBook(book) {
         //add title
         const bookTitle = document.createElement("p");
         bookTitle.classList.add("title");
-        const titleText = document.createTextNode(book.title);
+        const titleText = document.createTextNode(`"` + book.title + `"`);
         bookTitle.append(titleText);
         bookCard.appendChild(bookTitle);
 
         //add author
         const bookAuthor = document.createElement("p");
         bookAuthor.classList.add("author");
-        const authorText = document.createTextNode(book.author);
+        const authorText = document.createTextNode("By: " + book.author);
         bookAuthor.append(authorText);
         bookCard.appendChild(bookAuthor);
 
         //add pages
         const bookPages = document.createElement("p");
         bookPages.classList.add("pages");
-        const pagesText = document.createTextNode(book.pages);
+        const pagesText = document.createTextNode("Pages: " + book.pages);
         bookPages.append(pagesText);
         bookCard.appendChild(bookPages);
 
@@ -127,6 +127,19 @@ function displayBook(book) {
         const readText = document.createTextNode(book.read);
         bookRead.append(readText);
         bookCard.appendChild(bookRead);
+
+/*         //add Read checkbox
+        const readCheck = document.createElement("input");
+        readCheck.classList.add("read");
+        readCheck.type = "checkbox";
+        readCheck.name = "readCheck";
+        readCheck.value = "readCheck";
+        readCheck.id = "readCheck";
+        const checkLabel = document.createElement('label');
+        checkLabel.htmlFor = "readCheck";
+        checkLabel.appendChild(document.createTextNode('Read?'));
+        bookCard.appendChild(checkLabel);
+        bookCard.appendChild(readCheck); */
 
         //add delete button
         const delButton = document.createElement("p");
@@ -216,6 +229,6 @@ document.addEventListener('click', function(event) {
 
 
 
-//function handleForm(event) {event.preventDefault();}
-//document.addEventListener('submit', handleForm);
+function handleForm(event) {event.preventDefault();}
+document.addEventListener('submit', handleForm);
 

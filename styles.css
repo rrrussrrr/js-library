@@ -137,17 +137,21 @@ p {
 }
 
 #popup {
-    background-color: blue;
-    height: 200px;
-    width: 200px;
-    position: relative;
-    top:200px;
-    margin:auto;
+    background-color: skyblue;
+    height: 300px;
+    width: 300px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-left:-150px;
+    margin-top: -150px;
     padding: 20px;
+    border-radius: 10px;
+    border: solid black;
+    display:flex;
 }
 
 .modalform {
-    background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;

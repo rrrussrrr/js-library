@@ -176,6 +176,7 @@ form.addEventListener('submit', function(event){
         //displayBook();
         //store();
         modal.style.display = "none";
+        form.reset();
 
 })
 

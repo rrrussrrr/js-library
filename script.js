@@ -5,23 +5,29 @@ const modalButton = document.getElementById("modalbutton");
 const submitButton = document.getElementById("addbook");
 
 
-//Book Object
-function Book(title, author, pages, read) {
+//Book Object (using class now!)
 
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+
+class Book  {
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    isRead() {
+        if (this.read === false){
+            this.read = true;
+        } else { this.read = false;
+       }
+        
+    }
+
+
 }
 
-Book.prototype.isRead = function() {
-    if (this.read === false){
-        this.read = true;
-    } else { this.read = false;
-   }
-};
 
-lebook = new Book ("a", "b", 10);
 
 ///// INITIALIZATION
 // if local storage is empty, add a placeholder book
